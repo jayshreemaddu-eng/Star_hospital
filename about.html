@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | Kasvi Hospital</title>
+    <meta name="description" content="About Kasvi Hospital — our mission, values, facilities, and patient safety standards." />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar__row">
+        <div><strong>24/7 Emergency</strong> <span class="muted">•</span> <a href="tel:+916297483810">+91 62974 83810</a></div>
+        <div class="emergency">Ambulance: 108</div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="container nav__row">
+        <a class="brand" href="index.html" aria-label="Kasvi Hospital">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__text">
+            Kasvi Hospital
+            <small>Patient-first • Modern care</small>
+          </span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav__actions">
+          <a class="btn hide-sm" href="contact.html#appointment">Book Appointment</a>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobileMenu" title="Menu">☰</button>
+        </div>
+      </div>
+
+      <div class="container nav__mobile" id="mobileMenu" data-nav-mobile>
+        <div class="stack">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+          <a class="btn primary" href="contact.html#appointment">Book Appointment</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <span class="chip">About the hospital</span>
+          <h1 class="title" style="margin-top:14px;">Care that is clinical, clear, and kind.</h1>
+          <p class="subtitle">
+            Replace this content with your hospital’s real story—years in service, founders, achievements,
+            accreditations, and community programs.
+          </p>
+
+          <div class="grid-2">
+            <article class="card">
+              <h2 class="title" style="font-size:22px;">Our mission</h2>
+              <p class="muted">
+                Deliver safe, evidence-based care with empathy—supported by modern diagnostics and transparent communication.
+              </p>
+              <ul class="panel__list" style="margin-top:12px;">
+                <li><span class="dot"></span><span>Quality and safety as non‑negotiables</span></li>
+                <li><span class="dot green"></span><span>Respectful, inclusive patient experience</span></li>
+                <li><span class="dot"></span><span>Ethical practice and clear billing</span></li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h2 class="title" style="font-size:22px;">Facilities</h2>
+              <p class="muted">
+                Add real facility details here—ICU beds, OT counts, imaging modalities, labs, pharmacies, and more.
+              </p>
+              <div class="cards" style="grid-template-columns: repeat(2, 1fr); margin-top:12px;">
+                <div class="card" style="box-shadow:none;">
+                  <div class="icon">ICU</div>
+                  <h3>Critical care</h3>
+                  <p>24/7 monitoring &amp; trained staff.</p>
+                </div>
+                <div class="card" style="box-shadow:none;">
+                  <div class="icon">OT</div>
+                  <h3>Surgery</h3>
+                  <p>Modern operating theaters.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact">
+        <div class="container">
+          <div class="cards">
+            <article class="card">
+              <div class="icon">🛡</div>
+              <h3>Patient safety</h3>
+              <p>Protocols for infection control, medication safety, and consent-based care.</p>
+            </article>
+            <article class="card">
+              <div class="icon">⏱</div>
+              <h3>Efficient processes</h3>
+              <p>Queue-friendly OPD, digital reports, and streamlined admissions (customize to reality).</p>
+            </article>
+            <article class="card">
+              <div class="icon">🤝</div>
+              <h3>Community care</h3>
+              <p>Screening camps, preventive education, and follow-up support where possible.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__row">
+        <div>
+          <div class="brand" style="margin-bottom:10px;">
+            <span class="brand__logo" aria-hidden="true"></span>
+            <span class="brand__text">
+              Kasvi Hospital
+              <small>City, State • Mon–Sun • 24/7 Emergency</small>
+            </span>
+          </div>
+          <small>© <span id="year"></span> Kasvi Hospital. All rights reserved.</small>
+        </div>
+        <div class="cols">
+          <div>
+            <small><strong>Quick links</strong></small><br />
+            <a href="departments.html">Departments</a><br />
+            <a href="doctors.html">Doctors</a><br />
+            <a href="contact.html#appointment">Appointment</a>
+          </div>
+          <div>
+            <small><strong>Contact</strong></small><br />
+            <a href="tel:+916297483810">+91 62974 83810</a><br />
+            <a href="mailto:contact@kasvi.example">contact@kasvi.example</a><br />
+            <a href="contact.html">Location &amp; map</a>
+          </div>
+          <div>
+            <small><strong>Emergency</strong></small><br />
+            <a href="tel:+916297483810">Call emergency desk</a><br />
+            <span class="muted">Ambulance: 108</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>

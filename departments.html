@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Departments | Kasvi Hospital</title>
+    <meta name="description" content="Explore departments at Kasvi Hospital — specialties, services, and care pathways." />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar__row">
+        <div><strong>24/7 Emergency</strong> <span class="muted">•</span> <a href="tel:+916297483810">+91 62974 83810</a></div>
+        <div class="emergency">Ambulance: 108</div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="container nav__row">
+        <a class="brand" href="index.html" aria-label="Kasvi Hospital">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__text">
+            Kasvi Hospital
+            <small>Patient-first • Modern care</small>
+          </span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav__actions">
+          <a class="btn hide-sm" href="contact.html#appointment">Book Appointment</a>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobileMenu" title="Menu">☰</button>
+        </div>
+      </div>
+
+      <div class="container nav__mobile" id="mobileMenu" data-nav-mobile>
+        <div class="stack">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+          <a class="btn primary" href="contact.html#appointment">Book Appointment</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <span class="chip">Departments &amp; services</span>
+          <h1 class="title" style="margin-top:14px;">Find the right specialist.</h1>
+          <p class="subtitle">
+            This is a starter list. Add/remove departments to match your hospital, and expand each card with
+            timings, procedures, doctor list, and FAQs.
+          </p>
+
+          <div class="cards">
+            <article class="card">
+              <div class="icon">❤</div>
+              <h3>Cardiology</h3>
+              <p>Chest pain evaluation, ECG/Echo, hypertension management, heart health checkups.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🦴</div>
+              <h3>Orthopedics</h3>
+              <p>Fracture care, joint pain, sports injuries, arthritis treatment and rehabilitation.</p>
+            </article>
+            <article class="card">
+              <div class="icon">👶</div>
+              <h3>Pediatrics</h3>
+              <p>Child wellness, vaccinations, fever &amp; infection care, growth and nutrition guidance.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🧠</div>
+              <h3>Neurology</h3>
+              <p>Headache, stroke care guidance, nerve disorders, dizziness evaluation.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🩺</div>
+              <h3>General Medicine</h3>
+              <p>Adult OPD, diabetes &amp; BP care, fever clinic, preventive checkups and follow-ups.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🧪</div>
+              <h3>Diagnostics</h3>
+              <p>Lab tests and imaging support (update with your actual list of equipment and services).</p>
+            </article>
+          </div>
+
+          <div class="card" style="margin-top:16px;">
+            <h2 class="title" style="font-size:22px;">Need help choosing?</h2>
+            <p class="muted">Tell us your symptoms and we’ll guide you to the right department.</p>
+            <div style="margin-top:12px;">
+              <a class="btn success" href="contact.html#appointment">Request a callback</a>
+              <a class="btn" href="tel:+916297483810">Call OPD</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__row">
+        <div>
+          <div class="brand" style="margin-bottom:10px;">
+            <span class="brand__logo" aria-hidden="true"></span>
+            <span class="brand__text">
+              Kasvi Hospital
+              <small>City, State • Mon–Sun • 24/7 Emergency</small>
+            </span>
+          </div>
+          <small>© <span id="year"></span> Kasvi Hospital. All rights reserved.</small>
+        </div>
+        <div class="cols">
+          <div>
+            <small><strong>Quick links</strong></small><br />
+            <a href="departments.html">Departments</a><br />
+            <a href="doctors.html">Doctors</a><br />
+            <a href="contact.html#appointment">Appointment</a>
+          </div>
+          <div>
+            <small><strong>Contact</strong></small><br />
+            <a href="tel:+916297483810">+91 62974 83810</a><br />
+            <a href="mailto:contact@kasvi.example">contact@kasvi.example</a><br />
+            <a href="contact.html">Location &amp; map</a>
+          </div>
+          <div>
+            <small><strong>Emergency</strong></small><br />
+            <a href="tel:+916297483810">Call emergency desk</a><br />
+            <span class="muted">Ambulance: 108</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact & Appointment | Kasvi Hospital</title>
+    <meta name="description" content="Contact Kasvi Hospital — location, phone, email, and appointment request form." />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar__row">
+        <div><strong>24/7 Emergency</strong> <span class="muted">•</span> <a href="tel:+916297483810">+91 62974 83810</a></div>
+        <div class="emergency">Ambulance: 108</div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="container nav__row">
+        <a class="brand" href="index.html" aria-label="Kasvi Hospital">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__text">
+            Kasvi Hospital
+            <small>Patient-first • Modern care</small>
+          </span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav__actions">
+          <a class="btn hide-sm" href="#appointment">Book Appointment</a>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobileMenu" title="Menu">☰</button>
+        </div>
+      </div>
+
+      <div class="container nav__mobile" id="mobileMenu" data-nav-mobile>
+        <div class="stack">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="departments.html">Departments</a>
+          <a data-nav href="doctors.html">Doctors</a>
+          <a data-nav href="contact.html">Contact</a>
+          <a class="btn primary" href="#appointment">Book Appointment</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <span class="chip">Contact</span>
+          <h1 class="title" style="margin-top:14px;">We’re here to help.</h1>
+          <p class="subtitle">For emergencies, call immediately. For OPD/appointments, use the form below.</p>
+
+          <div class="grid-2">
+            <article class="card">
+              <h2 class="title" style="font-size:22px;">Phone</h2>
+              <p class="muted">
+                Emergency: <a href="tel:+916297483810">+91 62974 83810</a><br />
+                OPD/Reception: <a href="tel:+916297483810">+91 62974 83810</a><br />
+                Ambulance: <strong>108</strong>
+              </p>
+              <div style="margin-top:12px;">
+                <a class="btn danger" href="tel:+916297483810">Emergency Call</a>
+                <a class="btn" href="#appointment">Appointment</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h2 class="title" style="font-size:22px;">Address</h2>
+              <p class="muted">
+                Kasvi Hospital<br />
+                23, MG Road
+              </p>
+              <p class="help">Replace this with your real address and a Google Maps link.</p>
+              <div style="margin-top:12px;">
+                <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">Open Map</a>
+                <a class="btn" href="mailto:contact@kasvi.example">Email Us</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="appointment">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card">
+              <h2 class="title" style="font-size:26px;">Request an appointment</h2>
+              <p class="subtitle">This is a no-backend starter form (shows confirmation on submit). Add email/API later if needed.</p>
+
+              <form data-appointment-form>
+                <div class="form-row">
+                  <div>
+                    <label for="name">Full name *</label>
+                    <input id="name" name="name" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label for="phone">Phone *</label>
+                    <input id="phone" name="phone" placeholder="+91 ..." required />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div>
+                    <label for="dept">Department *</label>
+                    <select id="dept" name="department" required>
+                      <option value="">Select…</option>
+                      <option>General Medicine</option>
+                      <option>Cardiology</option>
+                      <option>Orthopedics</option>
+                      <option>Pediatrics</option>
+                      <option>Neurology</option>
+                      <option>Diagnostics</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="date">Preferred date *</label>
+                    <input id="date" name="date" type="date" required />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="msg">Symptoms / reason (optional)</label>
+                  <textarea id="msg" name="message" placeholder="Brief details…"></textarea>
+                  <div class="help">Don’t share highly sensitive information on public forms. Add privacy notice if required.</div>
+                </div>
+
+                <button class="btn success" type="submit">Submit request</button>
+                <div class="toast" data-form-toast>
+                  Thank you! Your request was recorded (demo). A staff member will contact you soon.
+                </div>
+              </form>
+            </article>
+
+            <aside class="card">
+              <h2 class="title" style="font-size:22px;">OPD timings</h2>
+              <p class="muted">Update these timings to match your hospital.</p>
+              <ul class="panel__list">
+                <li><span class="dot"></span><span>OPD: Mon–Sat • 09:00–19:00</span></li>
+                <li><span class="dot green"></span><span>Diagnostics: Daily • 08:00–20:00</span></li>
+                <li><span class="dot"></span><span>Emergency: 24/7</span></li>
+              </ul>
+
+              <div style="margin-top:18px;">
+                <h2 class="title" style="font-size:22px;">Insurance</h2>
+                <p class="muted">Mention cashless partners / TPA desk details here.</p>
+              </div>
+
+              <div style="margin-top:12px;">
+                <a class="btn" href="departments.html">Departments</a>
+                <a class="btn" href="doctors.html">Doctors</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__row">
+        <div>
+          <div class="brand" style="margin-bottom:10px;">
+            <span class="brand__logo" aria-hidden="true"></span>
+            <span class="brand__text">
+              Kasvi Hospital
+              <small>City, State • Mon–Sun • 24/7 Emergency</small>
+            </span>
+          </div>
+          <small>© <span id="year"></span> Kasvi Hospital. All rights reserved.</small>
+        </div>
+        <div class="cols">
+          <div>
+            <small><strong>Quick links</strong></small><br />
+            <a href="departments.html">Departments</a><br />
+            <a href="doctors.html">Doctors</a><br />
+            <a href="#appointment">Appointment</a>
+          </div>
+          <div>
+            <small><strong>Contact</strong></small><br />
+            <a href="tel:+916297483810">+91 62974 83810</a><br />
+            <a href="mailto:contact@kasvi.example">contact@kasvi.example</a><br />
+            <a href="https://maps.google.com" target="_blank" rel="noreferrer">Open map</a>
+          </div>
+          <div>
+            <small><strong>Emergency</strong></small><br />
+            <a href="tel:+916297483810">Call emergency desk</a><br />
+            <span class="muted">Ambulance: 108</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
