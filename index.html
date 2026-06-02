@@ -1,3 +1,5 @@
+Here is an HTML document that adds interactive floating buttons for appointment booking, WhatsApp, social media, and a chat box to your existing hospital website.
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +7,627 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Star Hospital | Compassionate care, modern medicine</title>
     <meta name="description" content="Star Hospital — 24/7 emergency, specialist departments, experienced doctors, and patient-first care." />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Font Awesome 6 (free CDN for clean social & chat icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts (optional but adds polish) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #f9fafc;
+        color: #1a2c3e;
+        line-height: 1.5;
+      }
+
+      /* Container & Utility classes (matching original design) */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .topbar {
+        background: #0b2b3b;
+        color: white;
+        padding: 8px 0;
+        font-size: 0.85rem;
+      }
+
+      .topbar__row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .topbar a {
+        color: #ffd966;
+        text-decoration: none;
+      }
+
+      .emergency {
+        background: #c52828;
+        padding: 2px 12px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      /* nav styles */
+      .nav {
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 16px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .brand__logo {
+        width: 32px;
+        height: 32px;
+        background: #1e88e5;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+
+      .brand__text {
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: #0f2b3d;
+        line-height: 1.2;
+      }
+
+      .brand__text small {
+        font-size: 0.7rem;
+        font-weight: 400;
+        display: block;
+        color: #4a627a;
+      }
+
+      .nav__links {
+        display: flex;
+        gap: 28px;
+      }
+
+      .nav__links a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      .nav__actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #eef2f5;
+        padding: 8px 20px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #1a5d7d;
+        transition: 0.2s;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .btn.primary {
+        background: #1e88e5;
+        color: white;
+      }
+
+      .btn.danger {
+        background: #c52828;
+        color: white;
+      }
+
+      .nav__toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      .nav__mobile {
+        display: none;
+        background: white;
+        padding: 20px 0;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 40px;
+      }
+
+      .chip {
+        background: #eef2ff;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero__cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .hero__panel {
+        background: white;
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+        border: 1px solid #e9edf2;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin: 18px 0;
+      }
+
+      .kpi strong {
+        font-size: 1.6rem;
+        display: block;
+      }
+
+      .panel__list {
+        list-style: none;
+        margin-top: 14px;
+      }
+
+      .panel__list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: #1e88e5;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .dot.green {
+        background: #2e7d32;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .compact {
+        padding-top: 0;
+      }
+
+      .title {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        color: #4b6a8b;
+        margin-bottom: 32px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+        border: 1px solid #eef2f8;
+      }
+
+      .icon {
+        font-weight: 800;
+        font-size: 1.9rem;
+        background: #eef6fc;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 60px;
+        margin-bottom: 18px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer {
+        background: #0f212e;
+        color: #d4dfe9;
+        padding: 40px 0;
+        margin-top: 20px;
+      }
+
+      .footer__row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 32px;
+      }
+
+      .cols {
+        display: flex;
+        gap: 48px;
+        flex-wrap: wrap;
+      }
+
+      .footer a {
+        color: #bdd4e2;
+        text-decoration: none;
+      }
+
+      .muted {
+        color: #93aec5;
+      }
+
+      /* ----- FLOATING ACTION BUTTON GROUP (popups, chat, social, whatsapp) ----- */
+      .floating-actions {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        z-index: 1000;
+      }
+
+      .fab {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        color: #2c3e50;
+        border: none;
+      }
+
+      .fab:hover {
+        transform: scale(1.07);
+      }
+
+      .fab.whatsapp {
+        background: #25D366;
+        color: white;
+      }
+
+      .fab.chat {
+        background: #1e88e5;
+        color: white;
+      }
+
+      .fab.social {
+        background: #833AB4;
+        background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+        color: white;
+      }
+
+      .fab.appointment {
+        background: #0f2b3d;
+        color: white;
+      }
+
+      /* tooltip label (hover) */
+      .fab::before {
+        content: attr(data-label);
+        position: absolute;
+        right: 70px;
+        background: #1e2a36;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.15s;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .fab:hover::before {
+        opacity: 1;
+      }
+
+      /* ----- POPUP MODAL (for appointment, social, etc) ----- */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.2s, opacity 0.2s;
+      }
+
+      .popup-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .popup-card {
+        background: white;
+        max-width: 460px;
+        width: 90%;
+        border-radius: 32px;
+        padding: 28px 24px;
+        position: relative;
+        box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+        text-align: center;
+        animation: fadeUp 0.25s ease;
+      }
+
+      @keyframes fadeUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .popup-card h3 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+      }
+
+      .popup-card p {
+        margin-bottom: 20px;
+        color: #4b5563;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        font-size: 1.8rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #6c7a8a;
+      }
+
+      .social-icons-popup {
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        margin: 24px 0;
+      }
+
+      .social-circle {
+        width: 56px;
+        height: 56px;
+        background: #f0f2f5;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #1e293b;
+        transition: 0.2s;
+        text-decoration: none;
+      }
+
+      .social-circle i {
+        font-size: 2rem;
+      }
+
+      .social-circle:hover {
+        background: #e2e8f0;
+        transform: translateY(-4px);
+      }
+
+      .appoint-form input, .appoint-form select {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 28px;
+        font-family: inherit;
+      }
+
+      .btn-full {
+        width: 100%;
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 40px;
+        font-weight: bold;
+      }
+
+      /* mini chat widget (popup style for chat box) */
+      .chat-widget {
+        position: fixed;
+        bottom: 110px;
+        right: 28px;
+        width: 320px;
+        background: white;
+        border-radius: 28px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+        z-index: 1050;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+
+      .chat-widget.open {
+        display: flex;
+      }
+
+      .chat-header {
+        background: #1e88e5;
+        color: white;
+        padding: 14px 18px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chat-body {
+        padding: 18px;
+        background: #f9fafc;
+        max-height: 300px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .chat-message {
+        background: #eef2f5;
+        padding: 10px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+      }
+
+      .chat-message.bot {
+        background: #1e88e520;
+        border-left: 3px solid #1e88e5;
+      }
+
+      .chat-input-area {
+        display: flex;
+        border-top: 1px solid #e2e8f0;
+        background: white;
+      }
+
+      .chat-input-area input {
+        flex: 1;
+        border: none;
+        padding: 12px;
+        outline: none;
+      }
+
+      .chat-input-area button {
+        background: #1e88e5;
+        border: none;
+        color: white;
+        padding: 0 14px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 780px) {
+        .nav__links, .hide-sm {
+          display: none;
+        }
+        .nav__toggle {
+          display: block;
+        }
+        .hero__grid {
+          grid-template-columns: 1fr;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .floating-actions {
+          bottom: 20px;
+          right: 20px;
+          gap: 12px;
+        }
+        .fab {
+          width: 48px;
+          height: 48px;
+          font-size: 1.5rem;
+        }
+        .chat-widget {
+          width: 280px;
+          right: 16px;
+          bottom: 100px;
+        }
+      }
+
+      .help {
+        font-size: 0.7rem;
+        margin-top: 12px;
+        color: #8ba0b6;
+      }
+    </style>
   </head>
   <body>
     <div class="topbar">
@@ -24,7 +646,6 @@
             <small>Patient-first • Modern care</small>
           </span>
         </a>
-
         <nav class="nav__links" aria-label="Primary">
           <a data-nav href="index.html">Home</a>
           <a data-nav href="service.html">services</a>
@@ -33,13 +654,11 @@
           <a data-nav href="about.html">About</a>
           <a data-nav href="contact.html">Contact</a>
         </nav>
-
         <div class="nav__actions">
           <a class="btn hide-sm" href="contact.html#appointment">Book an Appointment</a>
           <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobileMenu" title="Menu">☰</button>
         </div>
       </div>
-
       <div class="container nav__mobile" id="mobileMenu" data-nav-mobile>
         <div class="stack">
           <a data-nav href="index.html">Home</a>
@@ -60,17 +679,15 @@
             <span class="chip">Trusted care • Transparent billing • High safety standards</span>
             <h1>Compassionate care, backed by modern medicine.</h1>
             <p>
-              From preventive checkups to specialist treatments, Kasvi Hospital brings
+              From preventive checkups to specialist treatments, Star Hospital brings
               experienced doctors, modern diagnostics, and patient-first processes—so you can focus on recovery.
             </p>
-
             <div class="hero__cta">
               <a class="btn primary" href="contact.html#appointment">Request an Appointment</a>
               <a class="btn" href="departments.html">Explore Departments</a>
               <a class="btn danger" href="tel:+916297483810">Emergency Call</a>
             </div>
           </div>
-
           <aside class="hero__panel" aria-label="Quick info">
             <div class="panel__title">Today at a glance</div>
             <div class="kpis" role="list">
@@ -79,7 +696,7 @@
               <div class="kpi" role="listitem"><strong>50+</strong><span>Doctors</span></div>
               <div class="kpi" role="listitem"><strong>1L+</strong><span>Patients served</span></div>
             </div>
-            <ul class="panel__list" style="margin-top:14px;">
+            <ul class="panel__list">
               <li><span class="dot"></span><span>Same-day OPD slots (subject to availability)</span></li>
               <li><span class="dot green"></span><span>Digital reports &amp; follow-ups</span></li>
               <li><span class="dot"></span><span>Cashless insurance support*</span></li>
@@ -94,88 +711,190 @@
           <h2 class="title">Why patients choose us</h2>
           <p class="subtitle">A practical, patient-friendly hospital experience—before, during, and after treatment.</p>
           <div class="cards">
-            <article class="card">
-              <div class="icon">Dx</div>
-              <h3>Modern diagnostics</h3>
-              <p>Lab + imaging workflows designed for fast, reliable reporting and clear explanations.</p>
-            </article>
-            <article class="card">
-              <div class="icon">Rx</div>
-              <h3>Specialist care</h3>
-              <p>Multi-disciplinary teams collaborate on complex cases for better outcomes.</p>
-            </article>
-            <article class="card">
-              <div class="icon">24</div>
-              <h3>Emergency ready</h3>
-              <p>24/7 emergency with triage-first processes and quick stabilization support.</p>
-            </article>
+            <article class="card"><div class="icon">Dx</div><h3>Modern diagnostics</h3><p>Lab + imaging workflows designed for fast, reliable reporting and clear explanations.</p></article>
+            <article class="card"><div class="icon">Rx</div><h3>Specialist care</h3><p>Multi-disciplinary teams collaborate on complex cases for better outcomes.</p></article>
+            <article class="card"><div class="icon">24</div><h3>Emergency ready</h3><p>24/7 emergency with triage-first processes and quick stabilization support.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container grid-2">
-          <div class="card">
-            <h2 class="title">Departments</h2>
-            <p class="subtitle">Cardiology, Orthopedics, Pediatrics, General Medicine, and more.</p>
-            <p class="muted">
-              Browse our department list to find the right specialist. Each department page can be expanded later
-              with doctor rosters, timings, and FAQs.
-            </p>
-            <div style="margin-top:14px;">
-              <a class="btn" href="departments.html">View all departments</a>
-            </div>
-          </div>
-          <div class="card">
-            <h2 class="title">Doctors</h2>
-            <p class="subtitle">Experienced clinicians with patient-first communication.</p>
-            <p class="muted">
-              Add real doctor photos and credentials when ready. This starter site includes structured doctor cards
-              so you can scale to many profiles.
-            </p>
-            <div style="margin-top:14px;">
-              <a class="btn" href="doctors.html">Meet our doctors</a>
-            </div>
-          </div>
+          <div class="card"><h2 class="title">Departments</h2><p class="subtitle">Cardiology, Orthopedics, Pediatrics, General Medicine, and more.</p><p class="muted">Browse our department list to find the right specialist.</p><div style="margin-top:14px;"><a class="btn" href="departments.html">View all departments</a></div></div>
+          <div class="card"><h2 class="title">Doctors</h2><p class="subtitle">Experienced clinicians with patient-first communication.</p><p class="muted">Add real doctor photos and credentials when ready.</p><div style="margin-top:14px;"><a class="btn" href="doctors.html">Meet our doctors</a></div></div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container footer__row">
-        <div>
-          <div class="brand" style="margin-bottom:10px;">
-            <span class="brand__logo" aria-hidden="true"></span>
-            <span class="brand__text">
-              Star Hospital
-              <small>City, State • Mon–Sun • 24/7 Emergency</small>
-            </span>
-          </div>
-          <small>© <span id="year"></span> Star Hospital. All rights reserved.</small>
-        </div>
-        <div class="cols">
-          <div>
-            <small><strong>Quick links</strong></small><br />
-            <a href="departments.html">Departments</a><br />
-            <a href="doctors.html">Doctors</a><br />
-            <a href="contact.html#appointment">Appointment</a>
-          </div>
-          <div>
-            <small><strong>Contact</strong></small><br />
-            <a href="tel:+916297483810">+91 62974 83810</a><br />
-            <a href="mailto:contact@kasvi.example">contact@Star.example</a><br />
-            <a href="contact.html">Location &amp; map</a>
-          </div>
-          <div>
-            <small><strong>Emergency</strong></small><br />
-            <a href="tel:+916297483810">Call emergency desk</a><br />
-            <span class="muted">Ambulance: 108</span>
-          </div>
-        </div>
+        <div><div class="brand" style="margin-bottom:10px;"><span class="brand__logo" aria-hidden="true"></span><span class="brand__text">Star Hospital <small>City, State • Mon–Sun • 24/7 Emergency</small></span></div><small>© <span id="year"></span> Star Hospital. All rights reserved.</small></div>
+        <div class="cols"><div><small><strong>Quick links</strong></small><br /><a href="departments.html">Departments</a><br /><a href="doctors.html">Doctors</a><br /><a href="contact.html#appointment">Appointment</a></div><div><small><strong>Contact</strong></small><br /><a href="tel:+916297483810">+91 62974 83810</a><br /><a href="mailto:contact@star.example">contact@Star.example</a><br /><a href="contact.html">Location &amp; map</a></div><div><small><strong>Emergency</strong></small><br /><a href="tel:+916297483810">Call emergency desk</a><br /><span class="muted">Ambulance: 108</span></div></div>
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <!-- FLOATING BUTTONS: Book Appointment, WhatsApp, Social, Chat Box -->
+    <div class="floating-actions">
+      <button class="fab appointment" data-label="Book Appointment" id="fabAppointment"><i class="fas fa-calendar-check"></i></button>
+      <button class="fab whatsapp" data-label="WhatsApp Us" id="fabWhatsapp"><i class="fab fa-whatsapp"></i></button>
+      <button class="fab social" data-label="Social Media" id="fabSocial"><i class="fas fa-share-alt"></i></button>
+      <button class="fab chat" data-label="Chat with us" id="fabChat"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <!-- Chat Box Widget (hidden by default) -->
+    <div class="chat-widget" id="chatWidget">
+      <div class="chat-header">
+        <span><i class="fas fa-headset"></i> Star Care Chat</span>
+        <button style="background:none; border:none; color:white; font-size:1.4rem; cursor:pointer;" id="closeChatBtn">×</button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">👋 Hello! How can we assist you today? Need help with appointments or health info?</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type a message..." />
+        <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- Popup Overlay (Dynamic: appointment form / social menu) -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-card" id="popupCard">
+        <button class="popup-close" id="closePopupBtn">&times;</button>
+        <div id="popupContent"></div>
+      </div>
+    </div>
+
+    <script>
+      // handle mobile nav toggle (preserve original behavior)
+      const toggleBtn = document.querySelector('[data-nav-toggle]');
+      const mobileMenu = document.querySelector('[data-nav-mobile]');
+      if (toggleBtn && mobileMenu) {
+        toggleBtn.addEventListener('click', () => {
+          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? false : true;
+          toggleBtn.setAttribute('aria-expanded', expanded);
+          mobileMenu.style.display = expanded ? 'block' : 'none';
+        });
+      }
+
+      // Popup manager
+      const popupOverlay = document.getElementById('popupOverlay');
+      const popupContent = document.getElementById('popupContent');
+      const closePopupBtn = document.getElementById('closePopupBtn');
+
+      function closePopup() { popupOverlay.classList.remove('active'); }
+      function openPopup(htmlContent) { popupContent.innerHTML = htmlContent; popupOverlay.classList.add('active'); }
+
+      closePopupBtn.addEventListener('click', closePopup);
+      popupOverlay.addEventListener('click', (e) => { if(e.target === popupOverlay) closePopup(); });
+
+      // 1) Appointment popup
+      document.getElementById('fabAppointment').addEventListener('click', () => {
+        openPopup(`
+          <h3><i class="fas fa-calendar-alt"></i> Book Appointment</h3>
+          <p>Fill details and our team will confirm within 2 hours.</p>
+          <form class="appoint-form" id="quickAppointForm">
+            <input type="text" placeholder="Full Name" required id="appName">
+            <input type="tel" placeholder="Phone Number" required id="appPhone">
+            <select id="appDept">
+              <option>Cardiology</option><option>Orthopedics</option><option>General Medicine</option><option>Pediatrics</option>
+            </select>
+            <button type="submit" class="btn-full">Request Appointment</button>
+          </form>
+          <p class="help" style="margin-top: 10px;">We’ll reach you shortly.</p>
+        `);
+        const form = document.getElementById('quickAppointForm');
+        if(form) form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('appName').value;
+          if(name) alert(`✅ Thank you ${name}! Appointment request received.`);
+          else alert('Please enter your name.');
+          closePopup();
+        });
+      });
+
+      // 2) WhatsApp popup (direct link + optional info)
+      document.getElementById('fabWhatsapp').addEventListener('click', () => {
+        const phone = '916297483810'; // without + for whatsapp
+        const message = encodeURIComponent("Hello Star Hospital, I need assistance.");
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        // small popup to confirm optional ? but we can also show simple tooltip
+        openPopup(`<h3><i class="fab fa-whatsapp"></i> WhatsApp Chat</h3><p>Click below to start chatting with our support team on WhatsApp.</p><a href="https://wa.me/${phone}?text=${message}" target="_blank" class="btn primary" style="display:inline-block; margin-top:8px;">Open WhatsApp →</a><p class="help">You'll be redirected to WhatsApp.</p>`);
+      });
+
+      // 3) Social media popup (instagram, facebook, twitter)
+      document.getElementById('fabSocial').addEventListener('click', () => {
+        openPopup(`
+          <h3><i class="fas fa-hashtag"></i> Connect with us</h3>
+          <p>Follow Star Hospital for health tips & updates</p>
+          <div class="social-icons-popup">
+            <a href="#" class="social-circle" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-circle" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-circle" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-circle" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="help">🔹 Stay healthy, stay connected.</p>
+        `);
+      });
+
+      // 4) Chat box (floating widget)
+      const chatWidget = document.getElementById('chatWidget');
+      const fabChat = document.getElementById('fabChat');
+      const closeChatBtn = document.getElementById('closeChatBtn');
+      const chatBody = document.getElementById('chatBody');
+      const chatInput = document.getElementById('chatInput');
+      const sendChatBtn = document.getElementById('sendChatBtn');
+
+      fabChat.addEventListener('click', () => {
+        chatWidget.classList.toggle('open');
+        if(chatWidget.classList.contains('open')) {
+          // auto scroll
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      });
+      closeChatBtn.addEventListener('click', () => chatWidget.classList.remove('open'));
+
+      function addUserMessage(msg) {
+        const div = document.createElement('div');
+        div.classList.add('chat-message');
+        div.style.background = '#e1f5fe';
+        div.style.alignSelf = 'flex-end';
+        div.innerHTML = `<strong>You:</strong> ${msg}`;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+      function addBotReply(msg) {
+        const div = document.createElement('div');
+        div.classList.add('chat-message', 'bot');
+        div.innerHTML = `<strong>Star Assist:</strong> ${msg}`;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function botResponse(userMsg) {
+        const lower = userMsg.toLowerCase();
+        if(lower.includes('appointment') || lower.includes('book')) return "You can click the appointment button (calendar icon) or call +91 62974 83810 to book an OPD slot.";
+        if(lower.includes('doctor') || lower.includes('specialist')) return "We have 50+ experienced doctors across 12 departments. Check our 'Doctors' section!";
+        if(lower.includes('emergency')) return "Dial 108 for ambulance or our emergency desk at +91 62974 83810. We're open 24/7.";
+        return "Thank you for reaching out. Please share your query, or call our front desk for immediate assistance.";
+      }
+
+      sendChatBtn.addEventListener('click', () => {
+        const msg = chatInput.value.trim();
+        if(!msg) return;
+        addUserMessage(msg);
+        chatInput.value = '';
+        setTimeout(() => {
+          addBotReply(botResponse(msg));
+        }, 400);
+      });
+      chatInput.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter') sendChatBtn.click();
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // additional style: ensure mobile nav hidden initially
+      if(mobileMenu) mobileMenu.style.display = 'none';
+    </script>
   </body>
 </html>
+```
