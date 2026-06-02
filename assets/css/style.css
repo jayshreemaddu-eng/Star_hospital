@@ -1,309 +1,581 @@
-/* Hospital Website - Shared Styles */
-:root{
-  --bg: #0b1220;
-  --card: #0f1b33;
-  --text: #eaf1ff;
-  --muted: #b9c7e6;
-  --brand: #3aa0ff;
-  --brand-2: #22c55e;
-  --danger: #ff4d4d;
-  --border: rgba(255,255,255,.12);
-  --shadow: 0 14px 40px rgba(0,0,0,.35);
-}
+Here is an HTML document that creates a hospital website with a white background, based on your provided code.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Serenity Hospital | Advanced Care</title>
+  <style>
+    /* -----------------------------------
+       HOSPITAL WEBSITE - WHITE BACKGROUND THEME
+       Original structure fully preserved, only background & contrast adapted.
+    ----------------------------------- */
+    :root{
+      --bg: #ffffff;                     /* changed to white */
+      --card: #f8fafc;                  /* soft neutral for cards */
+      --text: #111827;                  /* high contrast dark text */
+      --muted: #4b5563;                 /* gray-600 */
+      --brand: #2563eb;                 /* vibrant blue */
+      --brand-2: #16a34a;               /* fresh green */
+      --danger: #dc2626;                /* rich red */
+      --border: rgba(0, 0, 0, 0.12);    /* subtle border */
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    }
 
-*{ box-sizing: border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
-  background: radial-gradient(1200px 800px at 20% 0%, rgba(58,160,255,.22), transparent 55%),
-              radial-gradient(900px 600px at 95% 10%, rgba(34,197,94,.18), transparent 52%),
-              var(--bg);
-  color: var(--text);
-  line-height: 1.5;
-}
-a{ color: inherit; text-decoration: none; }
-img{ max-width: 100%; display:block; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display:block; }
 
-.container{ width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-.section{ padding: 56px 0; }
-.section.compact{ padding: 36px 0; }
+    .container{ width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .section{ padding: 56px 0; }
+    .section.compact{ padding: 36px 0; }
 
-.chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 8px 12px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  border-radius: 999px;
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 14px;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.08);
-  color: var(--text);
-  font-weight: 700;
-  cursor:pointer;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease;
-}
-.btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.12); }
-.btn.primary{ background: linear-gradient(135deg, rgba(58,160,255,.95), rgba(58,160,255,.55)); border-color: rgba(58,160,255,.55); }
-.btn.success{ background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.55)); border-color: rgba(34,197,94,.55); }
-.btn.danger{ background: linear-gradient(135deg, rgba(255,77,77,.95), rgba(255,77,77,.55)); border-color: rgba(255,77,77,.55); }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.03);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.04);
+      color: var(--text);
+      font-weight: 700;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(0,0,0,.2); background: rgba(0,0,0,.08); }
+    .btn.primary{ background: linear-gradient(135deg, #2563eb, #1e40af); border-color: #2563eb40; color: white; }
+    .btn.success{ background: linear-gradient(135deg, #16a34a, #15803d); border-color: #16a34a40; color: white; }
+    .btn.danger{ background: linear-gradient(135deg, #dc2626, #b91c1c); border-color: #dc262640; color: white; }
 
-.topbar{
-  border-bottom: 1px solid var(--border);
-  background: rgba(10,18,32,.55);
-  backdrop-filter: blur(10px);
-}
-.topbar__row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 10px 0;
-  gap: 12px;
-  font-size: 14px;
-  color: var(--muted);
-}
-.topbar__row strong{ color: var(--text); }
-.topbar__row a{ text-decoration: underline; text-underline-offset: 3px; }
-.emergency{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding: 8px 12px;
-  border:1px solid rgba(255,77,77,.45);
-  background: rgba(255,77,77,.12);
-  border-radius: 999px;
-  color: #ffd0d0;
-  font-weight: 800;
-  white-space: nowrap;
-}
+    .topbar{
+      border-bottom: 1px solid var(--border);
+      background: #fefefe;
+      backdrop-filter: none;
+    }
+    .topbar__row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 10px 0;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .topbar__row strong{ color: var(--text); }
+    .topbar__row a{ text-decoration: underline; text-underline-offset: 3px; }
+    .emergency{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border:1px solid #dc262650;
+      background: #fee2e2;
+      border-radius: 999px;
+      color: #b91c1c;
+      font-weight: 800;
+      white-space: nowrap;
+    }
 
-.nav{
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: rgba(11,18,32,.75);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav__row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 14px 0;
-  gap: 12px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight: 900;
-  letter-spacing: .2px;
-}
-.brand__logo{
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.15) 46%, transparent 60%),
-    linear-gradient(135deg, rgba(58,160,255,.95), rgba(34,197,94,.65));
-  box-shadow: 0 10px 26px rgba(0,0,0,.22);
-  position: relative;
-  flex: 0 0 auto;
-}
-.brand__logo:before,
-.brand__logo:after{
-  content:"";
-  position:absolute;
-  inset: 0;
-  margin:auto;
-  background: rgba(11,18,32,.92);
-  border-radius: 4px;
-}
-.brand__logo:before{ width: 18px; height: 6px; }
-.brand__logo:after{ width: 6px; height: 18px; }
-.brand__text small{ display:block; color: var(--muted); font-weight:700; margin-top:-2px; }
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+    .brand__logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 30%, rgba(37,99,235,0.9), rgba(22,163,74,0.8));
+      box-shadow: 0 10px 26px rgba(0,0,0,.08);
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .brand__logo:before,
+    .brand__logo:after{
+      content:"";
+      position:absolute;
+      inset: 0;
+      margin:auto;
+      background: #ffffffcc;
+      border-radius: 4px;
+    }
+    .brand__logo:before{ width: 18px; height: 6px; }
+    .brand__logo:after{ width: 6px; height: 18px; }
+    .brand__text small{ display:block; color: var(--muted); font-weight:700; margin-top:-2px; }
 
-.nav__links{
-  display:flex;
-  align-items:center;
-  gap: 18px;
-  color: var(--muted);
-  font-weight: 700;
-}
-.nav__links a{ padding: 10px 10px; border-radius: 10px; }
-.nav__links a.active, .nav__links a:hover{
-  color: var(--text);
-  background: rgba(255,255,255,.08);
-}
-.nav__actions{ display:flex; align-items:center; gap: 10px; }
-.nav__toggle{
-  display:none;
-  width: 42px;
-  height: 40px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.nav__mobile{
-  display:none;
-  padding: 0 0 14px 0;
-}
-.nav__mobile a{
-  display:block;
-  padding: 12px 10px;
-  border-radius: 12px;
-  color: var(--muted);
-  font-weight: 800;
-}
-.nav__mobile a:hover, .nav__mobile a.active{
-  color: var(--text);
-  background: rgba(255,255,255,.08);
-}
-.nav__mobile .stack{ display:flex; flex-direction:column; gap: 6px; }
+    .nav__links{
+      display:flex;
+      align-items:center;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .nav__links a{ padding: 10px 10px; border-radius: 10px; }
+    .nav__links a.active, .nav__links a:hover{
+      color: var(--text);
+      background: rgba(0,0,0,.05);
+    }
+    .nav__actions{ display:flex; align-items:center; gap: 10px; }
+    .nav__toggle{
+      display:none;
+      width: 42px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.03);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .nav__mobile{
+      display:none;
+      padding: 0 0 14px 0;
+    }
+    .nav__mobile a{
+      display:block;
+      padding: 12px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .nav__mobile a:hover, .nav__mobile a.active{
+      color: var(--text);
+      background: rgba(0,0,0,.05);
+    }
+    .nav__mobile .stack{ display:flex; flex-direction:column; gap: 6px; }
 
-.hero{
-  padding: 64px 0 44px;
-}
-.hero__grid{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 28px;
-  align-items: start;
-}
-.hero h1{ font-size: clamp(32px, 4vw, 50px); line-height: 1.08; margin: 12px 0 10px; }
-.hero p{ color: var(--muted); font-size: 18px; margin: 0 0 18px; }
-.hero__cta{ display:flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-.hero__panel{
-  padding: 18px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.05);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-}
-.kpis{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.kpi{
-  padding: 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-}
-.kpi strong{ font-size: 22px; display:block; }
-.kpi span{ color: var(--muted); font-weight: 700; font-size: 14px; }
-.panel__title{ font-weight: 900; margin: 2px 0 10px; }
-.panel__list{ margin:0; padding:0; list-style:none; display:grid; gap: 10px; color: var(--muted); font-weight: 700;}
-.panel__list li{ display:flex; gap: 10px; }
-.dot{ width:10px; height:10px; margin-top: 7px; border-radius: 999px; background: var(--brand); box-shadow: 0 0 0 3px rgba(58,160,255,.15);}
-.dot.green{ background: var(--brand-2); box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
+    .hero{
+      padding: 64px 0 44px;
+    }
+    .hero__grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .hero h1{ font-size: clamp(32px, 4vw, 50px); line-height: 1.08; margin: 12px 0 10px; }
+    .hero p{ color: var(--muted); font-size: 18px; margin: 0 0 18px; }
+    .hero__cta{ display:flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .hero__panel{
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+    }
+    .kpi strong{ font-size: 22px; display:block; }
+    .kpi span{ color: var(--muted); font-weight: 700; font-size: 14px; }
+    .panel__title{ font-weight: 900; margin: 2px 0 10px; }
+    .panel__list{ margin:0; padding:0; list-style:none; display:grid; gap: 10px; color: var(--muted); font-weight: 700;}
+    .panel__list li{ display:flex; gap: 10px; }
+    .dot{ width:10px; height:10px; margin-top: 7px; border-radius: 999px; background: var(--brand); box-shadow: 0 0 0 3px rgba(37,99,235,.15);}
+    .dot.green{ background: var(--brand-2); box-shadow: 0 0 0 3px rgba(22,163,74,.15); }
 
-.cards{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-.card{
-  padding: 18px;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.05);
-  box-shadow: 0 10px 34px rgba(0,0,0,.2);
-}
-.card h3{ margin: 8px 0 8px; font-size: 18px; }
-.card p{ margin: 0; color: var(--muted); }
-.icon{
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.08);
-  display:grid;
-  place-items:center;
-  font-weight: 900;
-  letter-spacing: .3px;
-}
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .card h3{ margin: 8px 0 8px; font-size: 18px; }
+    .card p{ margin: 0; color: var(--muted); }
+    .icon{
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #f1f5f9;
+      display:grid;
+      place-items:center;
+      font-weight: 900;
+      letter-spacing: .3px;
+    }
 
-.grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.muted{ color: var(--muted); }
-.title{ font-size: 28px; margin: 0 0 10px; }
-.subtitle{ color: var(--muted); margin: 0 0 18px; }
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .muted{ color: var(--muted); }
+    .title{ font-size: 28px; margin: 0 0 10px; }
+    .subtitle{ color: var(--muted); margin: 0 0 18px; }
 
-form{
-  display:grid;
-  gap: 12px;
-}
-label{ font-weight: 800; font-size: 14px; color: var(--muted); }
-input, select, textarea{
-  width:100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-  outline: none;
-}
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(58,160,255,.55);
-  box-shadow: 0 0 0 4px rgba(58,160,255,.14);
-}
-textarea{ min-height: 120px; resize: vertical; }
-.form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.help{ font-size: 13px; color: var(--muted); margin-top: -6px; }
-.toast{
-  display:none;
-  margin-top: 10px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(34,197,94,.35);
-  background: rgba(34,197,94,.14);
-  color: #c8ffd8;
-  font-weight: 800;
-}
-.toast.show{ display:block; }
+    form{
+      display:grid;
+      gap: 12px;
+    }
+    label{ font-weight: 800; font-size: 14px; color: var(--muted); }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.14);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .help{ font-size: 13px; color: var(--muted); margin-top: -6px; }
+    .toast{
+      display:none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid #16a34a60;
+      background: #e0f2e8;
+      color: #166534;
+      font-weight: 800;
+    }
+    .toast.show{ display:block; }
 
-.footer{
-  padding: 26px 0;
-  border-top: 1px solid var(--border);
-  background: rgba(10,18,32,.45);
-}
-.footer__row{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap: 18px;
-}
-.footer small{ color: var(--muted); font-weight: 700; }
-.footer .cols{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.footer a{ color: var(--muted); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .footer{
+      padding: 26px 0;
+      border-top: 1px solid var(--border);
+      background: #f9fafb;
+    }
+    .footer__row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+    }
+    .footer small{ color: var(--muted); font-weight: 700; }
+    .footer .cols{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .footer a{ color: var(--muted); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 
-@media (max-width: 920px){
-  .hero__grid{ grid-template-columns: 1fr; }
-  .cards{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 720px){
-  .topbar__row{ flex-wrap: wrap; }
-  .nav__toggle{ display:inline-flex; align-items:center; justify-content:center; }
-  .nav__links, .nav__actions .hide-sm{ display:none; }
-  .nav__mobile.open{ display:block; }
-  .cards{ grid-template-columns: 1fr; }
-  .grid-2{ grid-template-columns: 1fr; }
-  .form-row{ grid-template-columns: 1fr; }
-  .footer__row{ flex-direction: column; }
-  .footer .cols{ grid-template-columns: 1fr; }
-}
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero__grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px){
+      .topbar__row{ flex-wrap: wrap; }
+      .nav__toggle{ display:inline-flex; align-items:center; justify-content:center; }
+      .nav__links, .nav__actions .hide-sm{ display:none; }
+      .nav__mobile.open{ display:block; }
+      .cards{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .footer__row{ flex-direction: column; }
+      .footer .cols{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__row">
+      <div>🏥 <strong>Serenity Hospital</strong> — multispecialty & advanced care</div>
+      <div class="emergency">🚨 24/7 EMERGENCY: <strong>+1 (800) 555-9912</strong></div>
+      <div><a href="#appointment">📅 Book online</a></div>
+    </div>
+  </div>
+</div>
 
+<nav class="nav">
+  <div class="container">
+    <div class="nav__row">
+      <div class="brand">
+        <div class="brand__logo"></div>
+        <div class="brand__text">SERENITY <small>Healthcare & Research</small></div>
+      </div>
+      <div class="nav__links">
+        <a href="#" class="active">Home</a>
+        <a href="#">Departments</a>
+        <a href="#">Doctors</a>
+        <a href="#">Patients</a>
+        <a href="#appointment">Appointment</a>
+      </div>
+      <div class="nav__actions">
+        <button class="btn primary hide-sm">🔐 Portal</button>
+        <button class="nav__toggle" id="mobileToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <div class="stack">
+        <a href="#" class="active">🏠 Home</a>
+        <a href="#">🩺 Departments</a>
+        <a href="#">👨‍⚕️ Doctors</a>
+        <a href="#">📋 Patients</a>
+        <a href="#appointment">📅 Appointment</a>
+        <a href="#">🔐 Patient Portal</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <div class="chip">🌟 25+ years of excellence</div>
+          <h1>Compassionate care,<br> advanced medicine.</h1>
+          <p>State-of-the-art technology with human touch. Over 500+ specialists ready to serve you and your family.</p>
+          <div class="hero__cta">
+            <a href="#appointment" class="btn primary">📅 Request appointment</a>
+            <a href="#" class="btn">📞 Call back</a>
+          </div>
+        </div>
+        <div class="hero__panel">
+          <div class="kpis">
+            <div class="kpi"><strong>99.2%</strong><span>Patient satisfaction</span></div>
+            <div class="kpi"><strong>50K+</strong><span>Surgeries / year</span></div>
+            <div class="kpi"><strong>24/7</strong><span>Emergency support</span></div>
+            <div class="kpi"><strong>⭐ 4.9</strong><span>Google rating</span></div>
+          </div>
+          <div class="panel__title">🔔 Today's highlights</div>
+          <ul class="panel__list">
+            <li><span class="dot"></span> Free cardiac check-up camp – 10AM to 2PM</li>
+            <li><span class="dot green"></span> Telemedicine slots available (12 specialists)</li>
+            <li><span class="dot"></span> Flu vaccine walk-in: no appointment needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: 28px;">
+        <span class="chip">⭐ World-class departments</span>
+        <h2 class="title">Comprehensive medical services</h2>
+        <p class="subtitle">From emergency to elective surgery, we've got you covered with top-tier expertise.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="icon">❤️</div><h3>Cardiology</h3><p>Non-invasive imaging, cath labs, and preventive heart health.</p></div>
+        <div class="card"><div class="icon">🧠</div><h3>Neurology</h3><p>Stroke care, neuro-surgery, advanced rehabilitation.</p></div>
+        <div class="card"><div class="icon">🦴</div><h3>Orthopedics</h3><p>Joint replacement, sports injury, spine surgery.</p></div>
+        <div class="card"><div class="icon">👶</div><h3>Pediatrics</h3><p>Child specialists, NICU, vaccination programs.</p></div>
+        <div class="card"><div class="icon">🤰</div><h3>Maternity</h3><p>Birthing center, high-risk pregnancy care, postpartum support.</p></div>
+        <div class="card"><div class="icon">🩺</div><h3>Oncology</h3><p>Radiation & chemotherapy with holistic care.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Appointment & Contact Section -->
+  <div class="section compact" id="appointment">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="chip">📋 Quick booking</span>
+          <h2 class="title">Schedule your visit</h2>
+          <p class="muted">Fill the form and our health advisor will confirm within 30 minutes. <br> Emergency? Please call our hotline instead.</p>
+          <div id="appointmentFormContainer">
+            <form id="bookingForm">
+              <div class="form-row">
+                <div><label>Full name</label><input type="text" id="fullName" placeholder="John Carter" required></div>
+                <div><label>Phone</label><input type="tel" id="phone" placeholder="(555) 123-4567" required></div>
+              </div>
+              <div class="form-row">
+                <div><label>Department</label>
+                  <select id="department">
+                    <option>Cardiology</option><option>Neurology</option><option>Orthopedics</option><option>Pediatrics</option><option>Maternity</option><option>Oncology</option>
+                  </select>
+                </div>
+                <div><label>Preferred date</label><input type="date" id="prefDate" required></div>
+              </div>
+              <div><label>Message (symptoms / requests)</label><textarea id="message" placeholder="Brief reason for visit..."></textarea></div>
+              <button type="submit" class="btn primary" style="width:100%;">✔ Request appointment</button>
+              <div id="toastMsg" class="toast">✅ Appointment request received! Our team will contact you shortly.</div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="hero__panel" style="background:white;">
+            <div class="panel__title">📞 Need immediate assistance?</div>
+            <ul class="panel__list">
+              <li><span class="dot green"></span> 📍 2100 Health Parkway, Suite 400, Austin, TX</li>
+              <li><span class="dot green"></span> 🕒 Open 24/7 – Emergency & Trauma Level I</li>
+              <li><span class="dot"></span> 🩺 Outpatient hours: Mon–Sat 8AM–8PM</li>
+              <li><span class="dot"></span> 📧 care@serenityhospital.org</li>
+            </ul>
+            <div style="margin-top: 20px;">
+              <button class="btn success" id="virtualCareBtn">💻 Virtual consult</button>
+              <button class="btn" id="directionsBtn">🗺 Get directions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why choose us section -->
+  <div class="section compact">
+    <div class="container">
+      <div style="text-align:center;">
+        <span class="chip">🏆 Why Serenity</span>
+        <h2 class="title">Trusted by 200k+ families</h2>
+        <div class="grid-2" style="margin-top: 24px;">
+          <div><strong>🔬 Innovative research</strong><p class="muted">Partnerships with leading medical universities & clinical trials.</p></div>
+          <div><strong>👩‍⚕️ Expert physicians</strong><p class="muted">Over 300 board-certified doctors, 24/7 nursing care.</p></div>
+          <div><strong>💊 Modern facilities</strong><p class="muted">Robotic surgery, hybrid OR, AI diagnostics.</p></div>
+          <div><strong>❤️‍🩹 Patient-first culture</strong><p class="muted">Personalized treatment plans & multilingual staff.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <div><strong>SERENITY HOSPITAL</strong><br><small>Excellence in healing since 1998</small></div>
+      <div class="cols">
+        <div><a href="#">About Us</a><br><a href="#">Careers</a><br><a href="#">Press</a></div>
+        <div><a href="#">Privacy Policy</a><br><a href="#">Patient Rights</a><br><a href="#">Financial Aid</a></div>
+        <div><a href="#">Feedback</a><br><a href="#">Volunteer</a><br><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div style="margin-top: 28px; text-align:center; border-top: 1px solid var(--border); padding-top: 18px;"><small>© 2026 Serenity Hospital – all rights reserved. The information on this site is for general purposes only.</small></div>
+  </div>
+</footer>
+
+<script>
+  // Mobile toggle
+  const toggleBtn = document.getElementById('mobileToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if(toggleBtn && mobileMenu){
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileMenu.classList.toggle('open');
+    });
+  }
+
+  // Appointment form with toast message and validation + reset
+  const form = document.getElementById('bookingForm');
+  const toast = document.getElementById('toastMsg');
+  if(form){
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('fullName');
+      const phoneInput = document.getElementById('phone');
+      const dateInput = document.getElementById('prefDate');
+      let isValid = true;
+      if(!nameInput.value.trim()){ nameInput.style.borderColor = '#dc2626'; isValid = false; } else { nameInput.style.borderColor = ''; }
+      if(!phoneInput.value.trim()){ phoneInput.style.borderColor = '#dc2626'; isValid = false; } else { phoneInput.style.borderColor = ''; }
+      if(!dateInput.value){ dateInput.style.borderColor = '#dc2626'; isValid = false; } else { dateInput.style.borderColor = ''; }
+      
+      if(isValid){
+        toast.classList.add('show');
+        form.reset();
+        setTimeout(() => { toast.classList.remove('show'); }, 3500);
+        // Also scroll to toast gently
+        toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        const fakeToast = document.createElement('div');
+        fakeToast.className = 'toast';
+        fakeToast.style.display = 'block';
+        fakeToast.style.background = '#fee2e2';
+        fakeToast.style.color = '#b91c1c';
+        fakeToast.style.borderColor = '#dc2626';
+        fakeToast.innerText = '⚠️ Please fill all required fields (name, phone, date)';
+        form.appendChild(fakeToast);
+        setTimeout(() => fakeToast.remove(), 2500);
+      }
+    });
+  }
+
+  // virtual consult button interactive simulation
+  const virtualBtn = document.getElementById('virtualCareBtn');
+  if(virtualBtn){
+    virtualBtn.addEventListener('click', () => {
+      alert("💻 Virtual consult redirect: Our telemedicine platform will open. For demo purposes, call (800) 555-9912 to schedule video visit.");
+    });
+  }
+  const directionsBtn = document.getElementById('directionsBtn');
+  if(directionsBtn){
+    directionsBtn.addEventListener('click', () => {
+      alert("📍 Serenity Hospital, 2100 Health Parkway, Austin, TX. Use navigation app for precise directions. 24/7 parking available.");
+    });
+  }
+
+  // Additional UX: smooth scroll for appointment links
+  document.querySelectorAll('a[href="#appointment"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('appointment');
+      if(target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  // set default min date for appointment
+  const datePicker = document.getElementById('prefDate');
+  if(datePicker){
+    const today = new Date().toISOString().split('T')[0];
+    datePicker.min = today;
+  }
+  // active nav link indicator based on scroll (polish)
+  const sections = document.querySelectorAll('#appointment');
+  const navLinks = document.querySelectorAll('.nav__links a, .nav__mobile a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    if(window.scrollY + 120 >= document.getElementById('appointment')?.offsetTop) current = '#appointment';
+    else current = '#';
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === current) link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
+```
